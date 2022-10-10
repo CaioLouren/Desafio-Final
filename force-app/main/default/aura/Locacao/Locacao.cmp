@@ -1,0 +1,39 @@
+<aura:component controller="Locacao" implements="flexipage:availableForAllPageTypes,force:appHostable" access="global">
+
+    <lightning:layout class="slds-page-header slds-page-header_object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:client" alternativeText="Cadastro" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading_label">LOCAÇÃO</h1>
+                <h2 class="slds-text-heading_medium"><strong>Locar</strong></h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:attribute name="veiculo" type="String" />
+    <aura:attribute name="cliente" type="String" />
+    <aura:attribute name="data" type="String" />
+    <aura:attribute name="sede" type="String" />
+
+    <lightning:card>
+        <p class="slds-var-p-horizontal_small">
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Loca_o__c">
+
+                <lightning:inputField value="{!v.veiculo}" fieldName="Ve_culo_Negocio__c" />
+
+                <lightning:inputField value="{!v.cliente}" fieldName="Cliente_Negocio__c" />
+
+                <lightning:inputField value="{!v.data}" fieldName="Data__c" />
+
+                <lightning:inputField value="{!v.sede}" fieldName="Sede_Negocio__c" />
+
+            </lightning:recordEditForm>
+        </p>
+        <div class="slds-var-p-horizontal_small">
+            <lightning:button variant="brand" label="Locar" onclick="{! c.LocacaoController}" />
+        </div>
+    </lightning:card>
+
+</aura:component>

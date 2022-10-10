@@ -1,0 +1,28 @@
+<aura:component controller="CadastroSede" implements="flexipage:availableForAllPageTypes,force:appHostable"
+    access="global">
+    <lightning:layout class="slds-page-header slds-page-header_object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:location" alternativeText="Cadastro" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading_label">Sede</h1>
+                <h2 class="slds-text-heading_medium"><strong>Cadastro</strong></h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:attribute name="nomeSede" type="String" />
+    <aura:attribute name="endereco" type="String" />
+
+    <lightning:card>
+        <p class="slds-p-horizontal_small">
+
+            <lightning:input type="String" label="Nome da Sede" value="{!v.nomeSede}" required="true" />
+
+            <lightning:input type="String" label="Endereço" value="{!v.endereco}" required="true" /><br />
+
+            <lightning:button variant="brand" label="Cadastrar" title="Clique no Botão" onclick="{! c.CadastroSede}" />
+        </p>
+    </lightning:card>
+</aura:component>

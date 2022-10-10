@@ -1,0 +1,44 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" access="global"
+    controller="CadastroCliente">
+    <lightning:layout class="slds-page-header slds-page-header_object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:client" alternativeText="Cadastro" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading_label">Cliente</h1>
+                <h2 class="slds-text-heading_medium"><strong>Cadastro</strong></h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:attribute name="nomeCompleto" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="cpf" type="String" />
+    <aura:attribute name="numeroCelular" type="String" />
+    <aura:attribute name="sede" type="String" />
+    <aura:attribute name="endereco" type="String" />
+
+    <lightning:card>
+        <p class="slds-p-horizontal_small">
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Cliente__c">
+
+                <lightning:inputField value="{!v.nomeCompleto}" fieldName="Nome_Completo__c" required="true" />
+
+                <lightning:inputField value="{!v.cpf}" fieldName="N_mero_de_CPF__c" required="true" />
+
+                <lightning:inputField value="{!v.email}" fieldName="Email__c" required="true" />
+
+                <lightning:inputField value="{!v.numeroCelular}" fieldName="N_mero_de_Celular__c" required="true" />
+
+                <lightning:inputField value="{!v.endereco}" fieldName="Endere_o_do_Cliente__c" required="true" />
+
+                <lightning:inputField value="{!v.sede}" fieldName="Sede_Cliente__c" />
+            </lightning:recordEditForm>
+        </p>
+        <div class="slds-p-horizontal_small">
+            <lightning:button variant="brand" label="Cadastra" onclick="{! c.cadastroDeCliente}" />
+        </div>
+    </lightning:card>
+
+</aura:component>

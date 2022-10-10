@@ -1,0 +1,48 @@
+<aura:component controller="CadastroVeiculo" implements="flexipage:availableForAllPageTypes,force:appHostable"
+    access="global">
+    <lightning:layout class="slds-page-header slds-page-header_object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:work_plan" alternativeText="Cadastro" />
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading_label">Veículo</h1>
+                <h2 class="slds-text-heading_medium"><strong>Cadastro</strong></h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:attribute name="modelo" type="String" />
+    <aura:attribute name="marca" type="String" />
+    <aura:attribute name="nivel" type="String" />
+    <aura:attribute name="estoqueVenda" type="String" />
+    <aura:attribute name="estoqueLocacao" type="String" />
+    <aura:attribute name="sede" type="String" />
+    <aura:attribute name="precoDeVenda" type="String" />
+    <aura:attribute name="precoDeLocacao" type="Decimal" />
+    <aura:attribute name="quantidadeDisponivel" type="String" />
+
+
+    <lightning:card>
+        <p class="slds-p-horizontal_small">
+            <lightning:recordEditForm aura:id="recordEditForm" objectApiName="Ve_culo__c">
+
+                <lightning:inputField value="{!v.modelo}" fieldName="Modelo__c" required="true" />
+
+                <lightning:inputField value="{!v.marca}" fieldName="Marca__c" required="true" />
+
+                <lightning:inputField value="{!v.nivel}" fieldName="N_vel__c" required="true"/>
+
+                <lightning:inputField value="{!v.estoqueVenda}" fieldName="Estoque_Venda__c" required="true" />
+
+                <lightning:inputField value="{!v.estoqueLocacao}" fieldName="Estoque_Loca_o__c" required="true" />
+
+                <lightning:inputField value="{!v.sede}" fieldName="Sede_de_cadastro__c" />
+            </lightning:recordEditForm>
+        </p>
+        <div class="slds-p-horizontal_small">
+            <lightning:button variant="brand" label="Cadastra" onclick="{! c.cadastroDeVeiculo}" />
+        </div>
+    </lightning:card>
+
+</aura:component>
